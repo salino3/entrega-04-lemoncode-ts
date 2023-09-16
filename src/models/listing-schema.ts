@@ -93,7 +93,7 @@ const listingSchema = new Schema<IListingAndReview>({
 
 // Crea el modelo de Mongoose
 const ListingModel = mongoose.model<IListingAndReview>(
-  "listingsandreviews",
+  "listingsAndReviews",
   listingSchema
 );
 
