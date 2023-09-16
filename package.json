@@ -12,17 +12,21 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/mongoose": "^5.11.97",
     "@types/node": "^20.6.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "dotenv": "^16.3.1",
     "mongodb": "^6.1.0",
     "nodemon": "^3.0.1"
   },
-    "nodemonConfig": {
+  "nodemonConfig": {
     "ext": "js,ts",
-    "watch": ["src"],
+    "watch": [
+      "src"
+    ],
     "exec": "ts-node src/index.ts"
   }
 }
