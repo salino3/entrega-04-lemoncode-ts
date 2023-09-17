@@ -1,7 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import { IListingAndReview } from "../interfaces/review";
 
-// Define el esquema de Mongoose para la colección
 const listingSchema = new Schema<IListingAndReview>({
   _id: String,
   listing_url: String,
@@ -91,9 +90,8 @@ const listingSchema = new Schema<IListingAndReview>({
   ],
 });
 
-// Crea el modelo de Mongoose
 const ListingModel = mongoose.model<IListingAndReview>(
-  "listingsAndReviews",
+  "listingsandreviews",
   listingSchema
 );
 
