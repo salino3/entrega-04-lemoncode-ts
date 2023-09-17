@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { IListingAndReview } from "../interfaces/review";
+import { IListingAndReview } from "../interfaces/houses";
 
 const listingSchema = new Schema<IListingAndReview>({
   _id: String,
