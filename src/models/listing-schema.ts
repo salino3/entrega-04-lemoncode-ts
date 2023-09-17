@@ -63,10 +63,24 @@ const listingSchema = new Schema<IListingAndReview>({
     market: String,
     country: String,
     country_code: String,
+    // location: {
+    //   type: String,
+    //   coordinates: [Number, Number],
+    //   is_location_exact: Boolean,
+    // },
     location: {
-      type: String,
-      coordinates: [Number, Number],
-      is_location_exact: Boolean,
+      type: {
+        type: String,
+        required: true,
+      },
+      coordinates: {
+        type: [Number],
+        required: true,
+      },
+      is_location_exact: {
+        type: Boolean,
+        required: true,
+      },
     },
   },
   availability: {

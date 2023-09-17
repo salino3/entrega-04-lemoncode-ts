@@ -6,6 +6,8 @@
 // npm install @types/mongoose --save-dev
 // npm i cors
 // npm i --save-dev @types/cors
+// npm i uuid
+// npm i --save-dev @types/uuid
 
 import express from "express";
 import mongoose from "mongoose";

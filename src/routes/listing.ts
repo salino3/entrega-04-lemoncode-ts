@@ -1,13 +1,16 @@
 import express from "express";
-import { getAllLimitFive, getDetailProperty, getHousesByCountry } from "../controllers/airbnb-controller";
+import { createReview, getAllLimitFive, getHouseDetail, getHousesByCountry } from "../controllers/airbnb-controller";
 
 const listingsRouter = express.Router();
 
 
 listingsRouter.get("/", getAllLimitFive);
 
-listingsRouter.get("/property/:id", getDetailProperty);
+listingsRouter.get("/property/:id", getHouseDetail);
 
  listingsRouter.get("/countries/:country", getHousesByCountry);
+
+ listingsRouter.post("/:propertyId/reviews", createReview);
+
 
 export { listingsRouter };
