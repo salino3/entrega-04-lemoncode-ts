@@ -1,7 +1,6 @@
 import mongoose, { Schema } from "mongoose";
-import { IListingAndReview } from "../interfaces/review";
+import { IListingAndReview } from "../interfaces/houses";
 
-// Define el esquema de Mongoose para la colección
 const listingSchema = new Schema<IListingAndReview>({
   _id: String,
   listing_url: String,
@@ -64,10 +63,24 @@ const listingSchema = new Schema<IListingAndReview>({
     market: String,
     country: String,
     country_code: String,
+    // location: {
+    //   type: String,
+    //   coordinates: [Number, Number],
+    //   is_location_exact: Boolean,
+    // },
     location: {
-      type: String,
-      coordinates: [Number, Number],
-      is_location_exact: Boolean,
+      type: {
+        type: String,
+        required: true,
+      },
+      coordinates: {
+        type: [Number],
+        required: true,
+      },
+      is_location_exact: {
+        type: Boolean,
+        required: true,
+      },
     },
   },
   availability: {
@@ -91,9 +104,8 @@ const listingSchema = new Schema<IListingAndReview>({
   ],
 });
 
-// Crea el modelo de Mongoose
 const ListingModel = mongoose.model<IListingAndReview>(
-  "listingsAndReviews",
+  "listingsandreviews",
   listingSchema
 );
 
