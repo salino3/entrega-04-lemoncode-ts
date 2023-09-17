@@ -8,7 +8,7 @@ listingsRouter.get("/", getAllLimitFive);
 
 listingsRouter.get("/property/:id", getHouseDetail);
 
- listingsRouter.get("/countries/:country", getHousesByCountry);
+ listingsRouter.get("/country/:country", getHousesByCountry);
 
  listingsRouter.post("/:propertyId/reviews", createReview);
 

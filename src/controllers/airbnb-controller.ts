@@ -30,7 +30,7 @@ export const getHouseDetail = async (req: Request, res: Response) => {
        bedrooms: property.bedrooms,
        beds: property.beds,
        bathrooms: property.bathrooms,
-       reviews: property.reviews.slice(0, 5),
+       reviews: property.reviews
      };
 
     return res.json(propertyDetail);
