@@ -1,14 +1,3 @@
-
-// npm init -y
-// npm install typescript ts-node @types/node --save-dev
-// npm install mongodb --save
-// npm i dotenv --save
-// npm install @types/mongoose --save-dev
-// npm i cors
-// npm i --save-dev @types/cors
-// npm i uuid
-// npm i --save-dev @types/uuid
-
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
