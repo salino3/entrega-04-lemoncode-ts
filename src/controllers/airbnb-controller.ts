@@ -3,10 +3,16 @@ import ListingModel from "../models/listing-schema";
 import { IListingAndReview } from "../interfaces/houses";
 import { v4 as uuidv4 } from "uuid";
 import { mapAirbnbFromApiToModel } from "../mappers/airbnb.mappers";
+import { getPaginationList } from "./pagination";
 
 export const getAllLimitFive = async (req: Request, res: Response) => {
   try {
-    const properties: IListingAndReview[] = await ListingModel.find().limit(5);
+    //* limit(10) because my PC is slowly
+    const items: IListingAndReview[] = await ListingModel.find().limit(10);
+   
+          const page = Number(req.query.page);
+          const pageSize = Number(req.query.pageSize);
+          const properties = getPaginationList(items, page, pageSize);
 
     const propertiesWithLastFiveReviews = properties.map((property) => ({
       ...property.toObject(),
@@ -15,7 +21,7 @@ export const getAllLimitFive = async (req: Request, res: Response) => {
 
     const mappedProperties = propertiesWithLastFiveReviews.map((property) =>
       mapAirbnbFromApiToModel(property)
-    );
+    ); 
 
     return res.json(mappedProperties);
   } catch (error) {
