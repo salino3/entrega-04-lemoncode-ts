@@ -28,27 +28,18 @@ export const getHouseDetail = async (req: Request, res: Response) => {
   const propertyId = req.params.id;
 
   try {
-    const property = await ListingModel.findById(propertyId).select({
-      name: 1,
-      images: 1,
-      description: 1,
-      address: 1,
-      bedrooms: 1,
-      beds: 1,
-      bathrooms: 1,
-      reviews: 1,
-    });
+    const property: IListingAndReview | null = await ListingModel.findById(propertyId);
 
     if (!property) {
       return res.status(404).json({ error: "Property not found" });
-    }
+    };
 
     const propertyWithLastFiveReviews = {
       ...property.toObject(),
       reviews: property.reviews.slice(-5),
     };
 
-    return res.json(propertyWithLastFiveReviews);
+    return res.json(mapAirbnbFromApiToModel(propertyWithLastFiveReviews));
   } catch (error) {
     console.error("Error getting details property", error);
     return res.status(500).json({ error: "Error getting details property" });
