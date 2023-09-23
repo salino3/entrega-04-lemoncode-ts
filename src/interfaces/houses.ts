@@ -1,42 +1,5 @@
 import { Document } from "mongoose";
 
-interface ILocation {
-  type: string;
-  coordinates: [number, number];
-  is_location_exact: boolean;
-};
-
-interface IImageUrls {
-  thumbnail_url: string;
-  medium_url: string;
-  picture_url: string;
-  xl_picture_url: string;
-};
-
-interface IHost {
-  host_id: string;
-  host_url: string;
-  host_name: string;
-  host_location: string;
-  host_about: string;
-  host_thumbnail_url: string;
-  host_picture_url: string;
-  host_neighbourhood: string;
-  host_is_superhost: boolean;
-  host_has_profile_pic: boolean;
-  host_identity_verified: boolean;
-  host_listings_count: number;
-  host_total_listings_count: number;
-  host_verifications: string[];
-};
-
-interface IReview {
-  _id: string;
-  date: Date;
-  reviewer_id: string;
-  reviewer_name: string;
-  comments: string;
-};
 
 
 export interface IListingAndReview extends Document {
@@ -93,4 +56,43 @@ export interface IListingAndReview extends Document {
     [key: string]: number;
   };
   reviews: IReview[];
+};
+
+
+interface ILocation {
+  type: string;
+  coordinates: [number, number];
+  is_location_exact: boolean;
+};
+
+interface IImageUrls {
+  thumbnail_url: string;
+  medium_url: string;
+  picture_url: string;
+  xl_picture_url: string;
+};
+
+interface IHost {
+  host_id: string;
+  host_url: string;
+  host_name: string;
+  host_location: string;
+  host_about: string;
+  host_thumbnail_url: string;
+  host_picture_url: string;
+  host_neighbourhood: string;
+  host_is_superhost: boolean;
+  host_has_profile_pic: boolean;
+  host_identity_verified: boolean;
+  host_listings_count: number;
+  host_total_listings_count: number;
+  host_verifications: string[];
+};
+
+interface IReview {
+  _id: string;
+  date: Date;
+  reviewer_id: string;
+  reviewer_name: string;
+  comments: string;
 };
